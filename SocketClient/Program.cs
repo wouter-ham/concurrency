@@ -5,7 +5,6 @@ using Concurrent;
 
 namespace Program
 {
-
     class Program
     {
         // todo: check how the client side starts 
@@ -33,8 +32,6 @@ namespace Program
                         Console.WriteLine("\n Invalid input ... ");
                         break;
                 }
-
-
             }
         }
     }
