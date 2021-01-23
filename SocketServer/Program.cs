@@ -13,11 +13,11 @@ namespace Program
     public class ServerSimulator
     {
         public Setting settings;
-        public string configFile = "../ClientServerConfig.json";
+        public string configFile = "../../../../ClientServerConfig.json";
 
         public ServerSimulator()
         {
-            this.configure();
+            configure();
         }
         public void configure()
         {
@@ -25,7 +25,7 @@ namespace Program
             try
             {
                 string configContent = File.ReadAllText(configFile);
-                this.settings = JsonSerializer.Deserialize<Setting>(configContent);
+                settings = JsonSerializer.Deserialize<Setting>(configContent);
             }
             catch (Exception e)
             {
@@ -62,14 +62,12 @@ namespace Program
         // todo 1: check the flow of main mehod as the starting point 
         static void Main(string[] args)
         {
-
             bool stop = false;
             while (!stop)
             {
                 Console.Clear();
                 Console.WriteLine("\n (C)oncurrent, (S)equential or (E)nd?");
-                string inp = Console.ReadLine();
-                switch (inp)
+                switch (Console.ReadLine())
                 {
                     case "S":
                         new ServerSimulator().sequentialRun();
@@ -85,7 +83,6 @@ namespace Program
                         break;
                 }
             }
-
         }
     }
 }
